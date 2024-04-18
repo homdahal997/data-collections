@@ -7,15 +7,20 @@ csvString = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,
 
 // Let us start by splitting given string into rows
 let rows = csvString.split("\n");
-console.log(rows);
+// console.log(rows);
 
+// for two-D array for part 2
+let twoDimArray = [];
 // Now loop through each row
 for (let i = 0; i < rows.length; i++) {
     let row = rows[i];
+    //console.log(rows.length);
     //console.log(row);
     // Now let's split row into cells using comma separator.
     let cells = row.split(",");
+    console.log(cells);
     let joinedRow = cells.join(" ");
+    twoDimArray.push(cells); // pusing this here instead of writing another loop for part-2.
     console.log(joinedRow);
 }
 
@@ -31,3 +36,17 @@ let row1 = rows[0];
 let columns = row1.split(",");
 colCount = columns.length;
 console.log(colCount);
+// Print twoDArray 
+console.log(twoDimArray);
+
+
+console.log("=====================Part 3: Transforming Data=======================");
+/**
+ * For each row of data in the result array produced by your code above, create an object where the key of each value is the heading for that value’s column.
+Convert these keys to all lowercase letters for consistency.
+Store these objects in an array, in the order that they were originally listed.
+Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
+ */
+// Empty array initilization to hold our objects
+let object = [];
+// here we can use 
