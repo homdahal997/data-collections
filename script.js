@@ -3,7 +3,7 @@ console.log("=====================Part 1: Refactoring Old Code==================
 // For the first part of this assignment, revisit your code from ALAB 308.3.1, wherein you create a script that parsed CSVs. Now that you have knowledge of arrays and objects, how would you change your approach to this problem? Take a few minutes to examine and refactor the code before continuing.
 
 // our given csv string 
-csvString = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
+let csvString = "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
 
 // Let us start by splitting given string into rows
 let rows = csvString.split("\n");
@@ -48,5 +48,49 @@ Store these objects in an array, in the order that they were originally listed.
 Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
  */
 // Empty array initilization to hold our objects
-let object = [];
-// here we can use 
+let objects = [];
+// Start from 1 to skip the header row
+twoDimArray.slice(1).forEach((row) => {
+    // Create an empty object
+    let obj = {};
+
+    row.forEach((cell, index) => {
+        // Extract the key and the value
+        let key = columns[index].toLowerCase();
+        let value = cell;
+
+        // Add the key and value to the object
+        obj[key] = value;
+    });
+
+    // Push the object into the array
+    objects.push(obj);
+});
+
+console.log(objects);
+
+
+console.log("=====================Part 4: Sorting and Manipulating Data=======================");
+// Remove the last element from the sorted array.
+objects.pop();
+//console.log(objects);
+
+// Insert the following object at index 1:
+// { id: "48", name: "Barry", occupation: "Runner", age: "25" }
+let objectToInsert = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
+objects.splice(1,0,objectToInsert);
+
+// Add the following object to the end of the array:
+// { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+objects.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" });
+console.log(objects);
+/**
+ * Finally, use the values of each object within the array and the array’s length property to calculate the average age of the group. This calculation should be accomplished using a loop.
+ */
+let averageAge = 0;
+objects.forEach((obj) => {
+averageAge += obj.age / objects.length;
+averageAge = Math.round(averageAge);
+});
+console.log(`Average age is ${averageAge}`);
+
