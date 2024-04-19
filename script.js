@@ -94,3 +94,17 @@ averageAge = Math.round(averageAge);
 });
 console.log(`Average age is ${averageAge}`);
 
+console.log("=====================Part 5: Full Circle=======================");
+// As a final task, transform the final set of data back into CSV format.
+// initialize empty string to hold our full cycle string value
+let csvStringOutput = "";
+// looping through array of object to output our string
+for(i = 0; i < objects.length; i++){
+    csvStringOutput += Object.values(objects[i]).join(",");
+    //if the current object is not the last one in the array
+    if(i !== objects.length - 1){
+        csvStringOutput += "\n";
+    }
+}
+console.log(csvStringOutput)
+
