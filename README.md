@@ -1,4 +1,4 @@
-# Data Collections - CSV Parser
+# Data Collections
 
 This project is a CSV parser that takes a CSV string, processes it, and performs various operations on the data.
 
